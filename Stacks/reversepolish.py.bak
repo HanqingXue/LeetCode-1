@@ -1,0 +1,23 @@
+class Solution:
+    # @param tokens, a list of string
+    # @return an integer
+    def evalRPN(self, tokens):
+        stack = []
+        eval_str = ""
+        for item in tokens:
+            if item.isalpha():
+                continue            
+            else:
+                if item.strip("-").isdigit(): #need to use strip cuz python thinks -ve ain't digits loma
+                    stack.append(item)
+                    #print(stack)
+                elif item in "+-*/":
+                    eval_str = ""
+                    eval_str += stack.pop()
+                    eval_str = stack.pop() + item + eval_str
+                    #print(eval_str)
+                    stack.append(str(eval(eval_str)))
+        if eval_str:
+            return(int(round(eval(eval_str))))
+        else:
+            return int(" ".join(stack))
