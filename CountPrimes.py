@@ -1,10 +1,10 @@
 """
 Help of: https://www.topcoder.com/community/data-science/data-science-tutorials/mathematics-for-topcoders/
 http://rosettacode.org/wiki/Sieve_of_Eratosthenes#Python
+https://stackoverflow.com/questions/19345627/python-prime-numbers-sieve-of-eratosthenes
 Count the number of prime numbers less than a non-negative number, n
 """
 import math
-import itertools as it
 
 def isPrime1(n):
     for i in range(2,n):
@@ -52,11 +52,11 @@ def sieve(n):
     s = [True] * n
     s[0] = s[1] = False
     sqrtn = int(round(n**0.5))
-    for i in range(2, sqrtn + 1): 
+    for i in range(2, sqrtn + 1):  #xrange for Py2
         if s[i]:
-            print(s[i*i: n:i])
+            #print(s[i*i: n:i])
             print(s)
-            s[i*i: n: i] =  [False] * len(range(i*i, n, i))
+            s[i*i: n: i] =  [False] * len(range(i*i, n, i)) #xrange for Py2
     return s.count(True)
 #OMG I AM ESTATIC! I USING A BOOLEAN ARRAY IS HEAPS BETTER CUZ 1 BYTE(LIKE IN C)
 print(sieve(10))
