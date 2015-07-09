@@ -17,15 +17,16 @@ class Solution:
                 num_counter[n] = 1
         return False # else (outside for loop and didn't hit the repeat) return False as in no repeats
 
+# Time O(n) Space O(1)
 # 2x Edge cases
 # Using length of sets
 class Solution:
     # @param {integer[]} nums
     # @return {boolean}
     def containsDuplicate(self, nums):
-        if nums == []: # 1. Edge case: Empty array
+        if nums == []: #CAN BE OMITTED 1. Edge case: Empty array
             return False
-        elif len(nums) == 1: # 2. Edge case: Arraty with 1 element
+        elif len(nums) == 1: #CAN BE OMITTED 2. Edge case: Arraty with 1 element
             return False
         else:
             return not(len(nums) == len(set(nums)))

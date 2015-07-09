@@ -1,0 +1,32 @@
+/*
+Given an array of integers, find if the array contains any duplicates. 
+Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct. 
+*/
+
+// Time O(n) Space O(1)
+// Using length of sets
+public class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        Integer[]temp = new Integer[nums.length];
+        int i = 0;
+        for (int value : nums) {
+        temp[i++] = Integer.valueOf(value);
+        }
+        Set<Integer> unique = new HashSet<Integer>(Arrays.asList(temp));
+        return !(unique.size() == nums.length);
+    }
+}
+
+import java.util.*;
+
+// Time O(n) Space O(n)
+public class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        Hashtable numCounter = new Hashtable(); // create counter hashtable
+        for (int n: nums) { // build dictionary
+            if (numCounter.containsKey(n)) return true; // if already in hashtable then DUPLICATE FOUND => TRUE
+            numCounter.put(n, true);
+        }
+        return false;
+    }
+}
