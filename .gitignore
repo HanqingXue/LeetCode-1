@@ -1,3 +1,5 @@
+*.py~
+.java~
 *.pydevproject
 .metadata
 .gradle
