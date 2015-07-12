@@ -7,6 +7,8 @@
 class Solution:
     # @param {ListNode} head
     # @return {boolean}
+    
+    """ Time: O(n) Space: O(n) """
     def isPalindrome(self, head):
         if head == None:
             return True
