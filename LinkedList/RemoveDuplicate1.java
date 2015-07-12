@@ -17,6 +17,8 @@ Edge Cases: Empty LL
  // }
  //
 
+
+/* ----------> THIS SOLUTION DOESNT WORK FOR EDGE CASES LIKE 1 1 1 1 1 1. Look at Cracking or HR answer <------------*/
 public class Solution {
     public ListNode deleteDuplicates(ListNode head) {  
         if(head == null) return head;  // Empty LL
