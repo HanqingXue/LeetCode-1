@@ -36,3 +36,32 @@ def mergeTwoLists(l1, l2):
         return l2
 
 print_ll(mergeTwoLists(l1_n1, l2_n1))
+"""
+Iterative Solution
+class Solution:
+    # @param {ListNode} l1
+    # @param {ListNode} l2
+    # @return {ListNode}
+    def mergeTwoLists(self, l1, l2):
+        head = ListNode(0)
+        
+        c = head
+        ptr1 = l1
+        ptr2 = l2
+        
+        while ptr1 and ptr2:
+            if ptr1.val <= ptr2.val:
+                c.next = ptr1
+                c = ptr1
+                ptr1 = ptr1.next
+            else:
+                c.next = ptr2
+                c = ptr2
+                ptr2 = ptr2.next
+        
+        if ptr1:
+            c.next = ptr1
+        else:
+            c.next = ptr2
+        return head.next
+"""
