@@ -15,7 +15,7 @@ public class Solution {
     public boolean hasCycle(ListNode head) {
     if (head == null) return false; // If empty LL then no cycles
     ListNode fast = head, slow = head; // Two ref pointers, fast and slow
-    while (fast != null && fast.next != null) { // Make sure fast doesn't fall off
+    while (fast != null && fast.next != null) { // Make sure fast doesn't fall off <--- FAST goes before FAST.NEXT!!! IMPORTANT
         slow = slow.next; // slow goes by one
         fast = fast.next.next; // fast moves by two
         if (slow == fast) return true; // if they both catch up ==> CYCLE DETECTED
