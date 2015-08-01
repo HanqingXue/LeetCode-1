@@ -22,6 +22,11 @@ Given the below binary tree and sum = 22,
         7    2      1
 
 return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
+
+GENERAL IDEA:
+Check if node is a leaf:
+    If NOT LEAF: then pass sum-node value left/right subtrees
+    If LEAF: then check if sum-leaf == 0
  */
 public class Solution {
     public boolean hasPathSum(TreeNode root, int sum) {
