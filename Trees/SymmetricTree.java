@@ -40,6 +40,7 @@ public class Solution {
         if(left==null && right==null) return true;
         
         // If node values aren't the same
+        // Gotta check if LEAF first then you can do this step
         if (left.val != right.val) return false;
         
         return helper(left.left,right.right) && helper(left.right,right.left);

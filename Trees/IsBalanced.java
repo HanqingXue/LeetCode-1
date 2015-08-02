@@ -19,8 +19,7 @@ public class Solution {
         int lHeight = height(root.left); // Find height of left subtree
         
         // ABS minus is not greater than 1. And also recurse down every subtree check if balanced.
-        if (Math.abs(rHeight - lHeight) <= 1 && isBalanced(root.right) && isBalanced(root.left)) return true;
-        else return false; /* If we reach here then tree is not height-balanced */
+        return (Math.abs(rHeight - lHeight) <= 1 && isBalanced(root.right) && isBalanced(root.left))
     }
     
     
