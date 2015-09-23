@@ -20,7 +20,7 @@ def PrintTreeLeve(t, desire): #No need to keep track of current level
     
     #now define a loop to continue while queue is not empty
     while trees != []:
-        print(trees, levels)
+        #print(trees, levels)
         temp = trees.pop(0) # dequeue and store in temp
         currentLevel = levels.pop(0) # get the associated level
         if temp == None: # before proceeding if current tree node is nul
@@ -33,6 +33,38 @@ def PrintTreeLeve(t, desire): #No need to keep track of current level
             trees.append(temp.right)
             levels.append(currentLevel + 1)
 
+def test(t, desire):
+    queue = []
+    levels = []
+    queue.append(t)
+    levels.append(0)
+    while queue != []:
+        temp = queue.pop(0)
+        level = levels.pop(0)
+        if level == desire:
+            print(temp.value)
+        
+        if temp.left != None:
+            queue.append(temp.left)
+            levels.append(level + 1)
+        if temp.right != None:
+            queue.append(temp.right)
+            levels.append(level + 1)
+
+def reverseLevel(t):
+    queue = []
+    queue.append(t)
+    stack = []
+    while queue != []:
+        temp = queue.pop(0)
+        stack.append(temp.value)
+        if temp.left != None:
+            queue.append(temp.left)
+        if temp.right != None:
+            queue.append(temp.right)
+    while stack != []:
+        print(stack.pop())
+    
 myTree = TreeNode(1)
 myTree.left = TreeNode(2)
 myTree.right = TreeNode(3)
@@ -42,3 +74,8 @@ myTree.left.right = TreeNode(6)
 myTree.right.left = TreeNode(7)
 
 PrintTreeLeve(myTree, 2)
+print("---------------------")
+test(myTree,2)
+
+print("---------------------")
+reverseLevel(myTree)
